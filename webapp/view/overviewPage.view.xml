@@ -1,0 +1,86 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:commons="sap.suite.ui.commons" controllerName="com.sap.solman.fb.TestSuiteDashboard_NewVersion.controller.overviewPage"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App >
+		<Page showHeader="true">
+			<customHeader>
+				<Bar class="custom-header header-background">
+					<contentLeft>
+						<Button id="selectParamsBt" tooltip="{i18n>SelectionParameters}" icon="sap-icon://nav-back" press="GoBack"></Button>
+					</contentLeft>
+					<contentMiddle>
+						<Label text="{testPlanModel>/labelForTitle}" design="Bold"/>
+						<Label text="{testPlanModel>/testPlanTitle}" class="Cont-No"/>
+					</contentMiddle>
+				</Bar>
+			</customHeader>
+			<!--<l:VerticalLayout class="sapUiContentPadding">-->
+			<l:HorizontalLayout class="sapUiHLayout1">
+				<GenericTile visible="{VisibilityModel>/overviewIsVisible}" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+					header="Country-Specific Profit Margin" subheader="Expenses" press="onPress">
+					<TileContent unit="EUR" footer="Current Quarter">
+						<NumericContent scale="M" value="1.96" valueColor="Error" indicator="Up" withMargin="false"/>
+					</TileContent>
+				</GenericTile>
+				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="US Profit Margin" press="onPress">
+					<TileContent unit="Unit">
+						<NumericContent scale="%" value="12" valueColor="Critical" indicator="Up" withMargin="false"/>
+					</TileContent>
+				</GenericTile>
+				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales Fulfillment Application Title" subheader="Subtitle"
+					press="onPress">
+					<TileContent unit="EUR" footer="Current Quarter">
+						<ImageContent src="sap-icon://home-share"/>
+					</TileContent>
+				</GenericTile>
+				<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Manage Activity Master Data Type" subheader="Subtitle"
+					press="onPress">
+					<TileContent>
+						<ImageContent src="test-resources/sap/m/demokit/sample/GenericTileAsLaunchTile/images/SAPLogoLargeTile_28px_height.png"/>
+					</TileContent>
+				</GenericTile>
+			</l:HorizontalLayout>
+			<!--<l:HorizontalLayout  class="sapUiHLayout1" >-->
+			<l:Splitter >
+				<commons:ChartContainer showFullScreen="true" showPersonalization="false" autoAdjustHeight="false"
+					personalizationPress="attachPersonalizationPress" contentChange="attachContentChange">
+					<commons:content>
+						<commons:ChartContainerContent icon="sap-icon://pie-chart" title="test Execution Status">
+							<commons:content>
+								<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" vizType="pie">
+									<viz:dataset>
+										<viz.data:FlattenedDataset>
+											<viz.data:dimensions>
+												<viz.data:DimensionDefinition name="STATUS" value="{SERIE}"/>
+											</viz.data:dimensions>
+											<viz.data:measures>
+												<viz.data:MeasureDefinition name="VALUE" value="{VALUE}"/>
+											</viz.data:measures>
+										</viz.data:FlattenedDataset>
+									</viz:dataset>
+									<viz:feeds>
+										<viz.feeds:FeedItem uid="pieSectorSize" type="Measure" values="VALUE"/>
+										<viz.feeds:FeedItem uid="pieSectorColor" type="Dimension" values="STATUS"/>
+									</viz:feeds>
+								</viz:VizFrame>
+							</commons:content>
+						</commons:ChartContainerContent>
+					</commons:content>
+				</commons:ChartContainer>
+				<commons:ChartContainer id="chartContainer" showFullScreen="true" showPersonalization="false" autoAdjustHeight="false"
+					personalizationPress="attachPersonalizationPress" contentChange="attachContentChange">
+					<commons:content>
+						<commons:ChartContainerContent icon="sap-icon://line-chart" title="test Execution Status">
+							<commons:content>
+								<viz:VizFrame id="id" uiConfig="{applicationSet:'fiori'}" vizType="pie"></viz:VizFrame>
+							</commons:content>
+						</commons:ChartContainerContent>
+					</commons:content>
+				</commons:ChartContainer>
+			</l:Splitter>
+			<!--</l:HorizontalLayout>-->
+			<!--</l:VerticalLayout>-->
+		</Page>
+	</App>
+</mvc:View>

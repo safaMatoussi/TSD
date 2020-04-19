@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns="sap.m" displayBlock="true" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:core="sap.ui.core">
+	
+	<smartFilterBar:SmartFilterBar  persistencyKey="SmartFilterPKey" entitySet="TestPLAN" enableBasicSearch="false"
+		filterChange="onFilterChange" beforeVariantFetch=".beforeVariantSave" afterVariantLoad=".afterVariantLoad" showRestoreButton="true"
+		useToolbar="false" smartVariant="__SVM01" assignedFiltersChanged="onAssignedFiltersChanged">
+		<smartFilterBar:controlConfiguration>
+			<smartFilterBar:ControlConfiguration  label="{i18n>project}" key="ppm" visibleInAdvancedArea="true"
+				preventInitialDataFetchInValueHelpDialog="false" index="1" width="700px">
+				<smartFilterBar:customControl>
+					<Input value="{FilterBarData>/projectValue}" required="true" valueHelpRequest="handelppmProjItem" showSuggestion="true" showValueHelp="true" valueHelpOnly="true"></Input>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration  key="wave" label="{i18n>Wave}" visibleInAdvancedArea="true"
+				preventInitialDataFetchInValueHelpDialog="false" index="2">
+				<smartFilterBar:customControl>
+					<Input valueHelpRequest="handelWaveItem" value="{FilterBarData>/waveValue}" required="true" editable="{FilterBarData>/waveEnablement}" showSuggestion="true" showValueHelp="true"
+						valueHelpOnly="true"></Input>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+		</smartFilterBar:controlConfiguration>
+	</smartFilterBar:SmartFilterBar>
+
+</core:FragmentDefinition>

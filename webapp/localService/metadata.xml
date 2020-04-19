@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="SALM_TEST_SUIT_DASHBOARD_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="BRANCH" sap:content-version="1">
+				<Key><PropertyRef Name="BranchGuid"/><PropertyRef Name="solutionGuid"/></Key><Property Name="branchID" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="BRANCH_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="branchTitle" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="BRANCH_TITLE"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selectionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="SELECTION_ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BranchGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="Branch ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="solutionGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="Solution ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="BusinessPARTNER" sap:content-version="1">
+				<Key><PropertyRef Name="partnerID"/><PropertyRef Name="selectionId"/></Key><Property Name="partnerID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="fullName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="lastName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="nameFirst" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="First name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selected" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selectionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="SELECTION_ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CHART" sap:content-version="1">
+				<Key><PropertyRef Name="configId"/><PropertyRef Name="pageId"/><PropertyRef Name="chartId"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="chartId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="title" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="type" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="ChartDATA" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.CHART_ChartDATA" FromRole="FromRole_CHART_ChartDATA"
+					ToRole="ToRole_CHART_ChartDATA"/></EntityType>
+			<EntityType Name="ChartDATA" sap:content-version="1">
+				<Key><PropertyRef Name="configId"/><PropertyRef Name="pageId"/><PropertyRef Name="chartId"/><PropertyRef Name="FILTER"/><PropertyRef Name="ChartDataID"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="chartId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Int2" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="FILTER" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="TITLE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TYPE" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TYPE" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SERIE" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="SERIE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="XAXIS" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="XAXIS" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="VALUE" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="VALUE" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col1" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL1" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col2" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL2" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col3" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL3" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col4" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL4" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col5" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL5" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col6" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL6" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col7" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL7" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col8" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL8" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col9" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL9" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col10" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL10" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col11" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL11" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col12" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL12" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col13" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL13" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col14" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL14" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col15" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL15" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="col16" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="COL16" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="COLOR_FLAG" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="/SALM/ TM Color Flag of Chart Data"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ChartDataID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CHARTDATA_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CONFIG" sap:content-version="1">
+				<Key><PropertyRef Name="configId"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="PAGE" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.CONFIG_PAGE" FromRole="FromRole_CONFIG_PAGE"
+					ToRole="ToRole_CONFIG_PAGE"/><NavigationProperty Name="TEST_PLAN" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.CONFIG_TestPLAN" FromRole="FromRole_CONFIG_TestPLAN"
+					ToRole="ToRole_CONFIG_TestPLAN"/></EntityType>
+			<EntityType Name="FILTER" sap:content-version="1">
+				<Key><PropertyRef Name="pageId"/><PropertyRef Name="chartId"/><PropertyRef Name="filterName"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="chartId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="filterName" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FilterCONTENT" sap:content-version="1">
+				<Key><PropertyRef Name="filterName"/></Key><Property Name="filterName" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="VALUE" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="PAGE" sap:content-version="1">
+				<Key><PropertyRef Name="configId"/><PropertyRef Name="pageId"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageName" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="TILE" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.PAGE_TILE" FromRole="FromRole_PAGE_TILE"
+					ToRole="ToRole_PAGE_TILE"/></EntityType>
+			<EntityType Name="SELECTION" sap:content-version="1">
+				<Key><PropertyRef Name="selectionId"/></Key><Property Name="userId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selectionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="Selection ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selectionTITLE" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Selection Name"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selectionMode" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Selection Mode"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="solutionGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="Solution ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ppmProjectGuid" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Project GUID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="waveGuid" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Wave GUID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="plannedDateFrom" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="plannedDateTo" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="InitialView" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Two-digit no."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="SCOPE" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_SCOPE" FromRole="FromRole_SELECTION_SCOPE"
+					ToRole="ToRole_SELECTION_SCOPE"/><NavigationProperty Name="BRANCH" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_BRANCH" FromRole="FromRole_SELECTION_BRANCH"
+					ToRole="ToRole_SELECTION_BRANCH"/><NavigationProperty Name="TEST_PLAN" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_TestPLAN" FromRole="FromRole_SELECTION_TestPLAN"
+					ToRole="ToRole_SELECTION_TestPLAN"/><NavigationProperty Name="BusinessPARTNER" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_BusinessPARTNER"
+					FromRole="FromRole_SELECTION_BusinessPARTNER" ToRole="ToRole_SELECTION_BusinessPARTNER"/><NavigationProperty Name="ReleaseSTATUS" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_ReleaseSTATUS"
+					FromRole="FromRole_SELECTION_ReleaseSTATUS" ToRole="ToRole_SELECTION_ReleaseSTATUS"/><NavigationProperty Name="TestCLASSIFICATION" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_TestCLASSIFICATION"
+					FromRole="FromRole_SELECTION_TestCLASSIFICATION" ToRole="ToRole_SELECTION_TestCLASSIFICATION"/></EntityType>
+			<EntityType Name="SCOPE" sap:content-version="1">
+				<Key><PropertyRef Name="solutionGuid"/><PropertyRef Name="selectionId"/></Key><Property Name="solutionGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selectionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="scopeGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="scopeDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="SOLUTION" sap:content-version="1">
+				<Key><PropertyRef Name="solutionGuid"/></Key><Property Name="solutionGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="solutionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="solutionTitle" Type="Edm.String" Nullable="false" MaxLength="48" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="solutionDescription" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="BRANCH" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.SOLUTION_BRANCH" FromRole="FromRole_SOLUTION_BRANCH"
+					ToRole="ToRole_SOLUTION_BRANCH"/><NavigationProperty Name="SCOPE" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.SOLUTION_SCOPE" FromRole="FromRole_SOLUTION_SCOPE"
+					ToRole="ToRole_SOLUTION_SCOPE"/></EntityType>
+			<EntityType Name="TC_ERROR_TAB" sap:content-version="1">
+				<Key><PropertyRef Name="testCaseId"/><PropertyRef Name="defectId"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testPackId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="TESTPACKID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testCaseId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="TESTCASEID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="classification" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="CLASSIFICATION"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="dateTes" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="DATE_TES" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TestPackName" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="TESTPACK_NAME"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testCaseName" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="TESTCASE_NAME"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="defectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="DEFECTID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="defectName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="DEFECTNAME"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="defectUrl" Type="Edm.String" Nullable="false" MaxLength="2250" sap:unicode="false" sap:label="DEFECT_URL"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="priority" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="PRIORITY" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="status" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="STATUS" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="processor" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="PROCESSOR" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="supportTeam" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="SUPPORTTEAM"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="processingTime" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="PROCESSINGTIME" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="category" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="CATEGORY" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tester" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="TESTER" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="WP_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="WP_DESC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="WORK_PACKAGE" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TC_ERROR_TAB_WORK_PACKAGE"
+					FromRole="FromRole_TC_ERROR_TAB_WORK_PACKAGE" ToRole="ToRole_TC_ERROR_TAB_WORK_PACKAGE"/></EntityType>
+			<EntityType Name="TES_BY_WP" sap:content-version="1">
+				<Key><PropertyRef Name="testPlanId"/><PropertyRef Name="wpId"/><PropertyRef Name="tcId"/></Key><Property Name="testCaseId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testPlanId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="TEST_PLAN_ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testPlanDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="TEST_PLAN_DESC"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="classification" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="CLASSIFICATION"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="WP_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="WP_DESC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpStatus" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="WP_STATUS" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="nbTc" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="NB_TC" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="testStatus" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="TEST_STATUS"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="nbOpenDefects" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="NB_OPEN_DEFECTS" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tcId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="TC_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tcDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="TC_DESC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="reqId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="REQ_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="reqDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="REQ_DESC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tester" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="TESTER" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testPackID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="TESTPACK_ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testPackName" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="TESTPACK_NAME"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="PAGE_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpUrl" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:label="WP_URL" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="REQ" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TES_BY_WP_REQ" FromRole="FromRole_TES_BY_WP_REQ"
+					ToRole="ToRole_TES_BY_WP_REQ"/></EntityType>
+			<EntityType Name="TES_BY_WP_OVERVIEW" sap:content-version="1">
+				<Key><PropertyRef Name="testPlanId"/><PropertyRef Name="wpId"/></Key><Property Name="testCaseId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testPlanId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="TEST_PLAN_ID"
+					sap:creatable="false" sap:updatable="false"/><Property Name="testPlanDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="TEST_PLAN_DESC"
+					sap:creatable="false" sap:updatable="false"/><Property Name="classification" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="CLASSIFICATION"
+					sap:creatable="false" sap:updatable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="WP_ID" sap:creatable="false"
+					sap:updatable="false"/><Property Name="wpDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="WP_DESC" sap:creatable="false"
+					sap:updatable="false"/><Property Name="wpStatus" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="WP_STATUS" sap:creatable="false"
+					sap:updatable="false"/><Property Name="nbTc" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="NB_TC" sap:creatable="false" sap:updatable="false"/><Property Name="testStatus" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="TEST_STATUS"
+					sap:creatable="false" sap:updatable="false"/><Property Name="nbOpenDefects" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="NB_OPEN_DEFECTS" sap:creatable="false"
+					sap:updatable="false"/><Property Name="tcId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="TC_ID" sap:creatable="false"
+					sap:updatable="false"/><Property Name="tcDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="TC_DESC" sap:creatable="false"
+					sap:updatable="false"/><Property Name="reqId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="REQ_ID" sap:creatable="false"
+					sap:updatable="false"/><Property Name="reqDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="REQ_DESC" sap:creatable="false"
+					sap:updatable="false"/><Property Name="tester" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="TESTER" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testPackID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="TESTPACK_ID"
+					sap:creatable="false" sap:updatable="false"/><Property Name="testPackName" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="TESTPACK_NAME"
+					sap:creatable="false" sap:updatable="false"/><Property Name="pageId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="PAGE_ID" sap:creatable="false"
+					sap:updatable="false"/><Property Name="wpUrl" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:label="WP_URL" sap:creatable="false"
+					sap:updatable="false"/><NavigationProperty Name="REQ" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TES_BY_WP_OVERVIEW_REQ" FromRole="FromRole_TES_BY_WP_OVERVIEW_REQ"
+					ToRole="ToRole_TES_BY_WP_OVERVIEW_REQ"/></EntityType>
+			<EntityType Name="TEST_PREP_TILE" sap:content-version="1">
+				<Key><PropertyRef Name="TEXT"/></Key><Property Name="PROCESS_TYPE" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="PROCESS_TYPE"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="status" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="User status" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TEXT" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TEXT" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="STATUS_TEXT" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="STATUS_TEXT" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="VALUE" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="VALUE" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="COLOR" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Color" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ORD_NR" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Two-digit no." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ppm" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="PPM" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wave" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="WAVE" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TestCLASSIFICATION" sap:content-version="1">
+				<Key><PropertyRef Name="classId"/></Key><Property Name="classId" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="CLASS_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="classTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="CLASS_TITLE"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selectionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="SELECTION_ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TILE" sap:content-version="1">
+				<Key><PropertyRef Name="configId"/><PropertyRef Name="pageId"/><PropertyRef Name="tileId"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tileId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tileName" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tileType" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="description" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="VALUE" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="COLOR_FLAG" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="smode" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="TileDETAILS" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TILE_TileDETAILS" FromRole="FromRole_TILE_TileDETAILS"
+					ToRole="ToRole_TILE_TileDETAILS"/></EntityType>
+			<EntityType Name="TileDETAILS" sap:content-version="1">
+				<Key><PropertyRef Name="configId"/><PropertyRef Name="pageId"/><PropertyRef Name="tileId"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tileId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="detailName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="detailValue" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="detailUnit" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="COLOR_FLAG" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TRA_MATRIX_DEEP" sap:content-version="1">
+				<Key><PropertyRef Name="lineId"/><PropertyRef Name="workPackageId"/></Key><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false"/><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="lineId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false"/><Property Name="projectGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="projectId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="projectText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="waveGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="wave" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Requirement" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="reqDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="requirementStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="reqMLC" Type="Edm.String" Nullable="false" MaxLength="209" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false"/><Property Name="reqLink" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="processStep" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="processStepLink" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="workPackageId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="wpDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="workPackageStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="wpMLC" Type="Edm.String" Nullable="false" MaxLength="209" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpDocText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="wpDocTextMult" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false"
+					sap:updatable="false"/><Property Name="WorkPackageDocStatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="wpLink" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="wiId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="wiIdMult" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false"
+					sap:updatable="false"/><Property Name="wiDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="wiStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="wiMLC" Type="Edm.String" Nullable="false" MaxLength="209" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wiDocText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="wiDocStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="wiLink" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="trOrderId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="trOrderIdMult" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false"
+					sap:updatable="false"/><Property Name="trOrderIdText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="trOrderIdStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testPlanId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testPlanDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="tpLink" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="tpClassification" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="tpNodeKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="tpckId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="tpckDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="TcseId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="TcseDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="TcseStatus" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="TcseDocStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="TcseClassification" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="TcseLastChangedAt" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="defectId" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="defectDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="defectStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="defectPrio" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="defectMLC" Type="Edm.String" Nullable="false" MaxLength="209" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="defectLink" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="defCorrId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="defCorrDesc" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="defCorrStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="defCorrMLC" Type="Edm.String" Nullable="false" MaxLength="209" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="defCorrLink" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><NavigationProperty Name="TRA_MATRIX_DOC_TEXT_PO" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"
+					FromRole="FromRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC" ToRole="ToRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"/><NavigationProperty Name="TRA_MATRIX_PO" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER"
+					FromRole="FromRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER" ToRole="ToRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER"/><NavigationProperty Name="TRA_MATRIX_TILE" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP_TRA_MATRIX_TILE"
+					FromRole="FromRole_TRA_MATRIX_DEEP_TRA_MATRIX_TILE" ToRole="ToRole_TRA_MATRIX_DEEP_TRA_MATRIX_TILE"/></EntityType>
+			<EntityType Name="TRA_MATRIX_DOC_TEXT_PO" sap:content-version="1">
+				<Key><PropertyRef Name="wpId"/><PropertyRef Name="wpDocText"/></Key><Property Name="lineId" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpDocText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpDocStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/></EntityType>
+			<EntityType Name="TRA_MATRIX_PO" sap:content-version="1">
+				<Key><PropertyRef Name="wpId"/><PropertyRef Name="wiId"/><PropertyRef Name="trOrderId"/></Key><Property Name="lineId" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wiId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wiDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wiStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wiMLC" Type="Edm.String" Nullable="false" MaxLength="209" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wiDocText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wiDocStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wiLink" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="trOrderId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="trOrderText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="trOrderStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TRA_MATRIX_TILE" sap:content-version="1">
+				<Key><PropertyRef Name="wpId"/><PropertyRef Name="tileId"/></Key><Property Name="lineId" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tileId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tileName" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="description" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="VALUE" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="USER" sap:content-version="1">
+				<Key><PropertyRef Name="USER_ID"/></Key><Property Name="USER_ID" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="NAME" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="WAVE" sap:content-version="1">
+				<Key><PropertyRef Name="cproGuid"/><PropertyRef Name="waveId"/></Key><Property Name="ppm" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="cproGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="waveId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="waveName" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="SelectionFLAG" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="TEST_PLAN" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.WAVE_TEST_PLAN" FromRole="FromRole_WAVE_TEST_PLAN"
+					ToRole="ToRole_WAVE_TEST_PLAN"/></EntityType>
+			<EntityType Name="WORK_PACKAGE" sap:content-version="1">
+				<Key><PropertyRef Name="testCaseId"/><PropertyRef Name="wpId"/></Key><Property Name="defectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpUrl" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="WP_TCASSIGN" sap:content-version="1">
+				<Key><PropertyRef Name="wpId"/><PropertyRef Name="tcOccId"/></Key><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpStatus" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wpPriority" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpLink" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tcOccId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tcId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tcDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tcClassification" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tcOwner" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tcUpdate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="ppm" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wave" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TestPLAN" sap:content-version="1">
+				<Key><PropertyRef Name="testPlanId"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testPlanId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TITLE" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="solutionGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="branchGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="BranchTitle" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ppmGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="waveGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="testClass" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="resPerson" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="resPersonName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="relStatusId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="relStatusValue" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="selectionFlag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="selectionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ppm" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="wave" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="solution" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="plannedStartDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="plannedEndDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="mode" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="scopeGuid" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="scopeDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="REQ" sap:content-version="1">
+				<Key><PropertyRef Name="testCaseId"/><PropertyRef Name="reqId"/><PropertyRef Name="reqDesc"/></Key><Property Name="testCaseId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="testPlanId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="reqId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="REQ_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="reqDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="REQ_DESC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="WP_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ReleaseSTATUS" sap:content-version="1">
+				<Key><PropertyRef Name="statusId"/></Key><Property Name="statusId" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="STATUS_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="statusTitle" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="STATUS_TITLE"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="selectionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:label="SELECTION_ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="schemaId" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="SCHEMA_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="schemaTitle" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="SCHEMA_TITLE"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TestStatusResults" sap:content-version="1">
+				<Key><PropertyRef Name="testPckId"/><PropertyRef Name="testPackKey"/><PropertyRef Name="testCaseId"/></Key><Property Name="testPckId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="TESTPACKID"
+					sap:creatable="false" sap:updatable="false"/><Property Name="testPackKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TESTPACKKEY" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="TESTCASEID"
+					sap:creatable="false" sap:updatable="false"/><Property Name="testPack_Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="TESTPACK_NAME"
+					sap:creatable="false" sap:updatable="false"/><Property Name="testPack_Priority" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="TESTPACK_PRIORITY" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testCase_Name" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="TESTCASE_NAME" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testCaseType_Id" Type="Edm.String" sap:unicode="false" sap:label="TESTCASETYPE_ID" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testCaseType" Type="Edm.String" MaxLength="18" sap:unicode="false" sap:label="TESTCASETYPE" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testCaseStatus_Icon" Type="Edm.String" sap:unicode="false" sap:label="TESTCASESTATUS_ICON" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testCaseStatus" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="TESTCASESTATUS" sap:creatable="false"
+					sap:updatable="false"/><Property Name="currentStep" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="CURRENTSTEP" sap:creatable="false"
+					sap:updatable="false"/><Property Name="currentStepStatus" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="CURRENTSTEPSTATUS" sap:creatable="false"
+					sap:updatable="false"/><Property Name="evidence" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="EVIDENCE" sap:creatable="false"
+					sap:updatable="false"/><Property Name="missing_Evidence" Type="Edm.String" sap:unicode="false" sap:label="MISSING_EVIDENCE" sap:creatable="false"
+					sap:updatable="false"/><Property Name="testResults" Type="Edm.Int16" sap:unicode="false" sap:label="TESTRESULTS" sap:creatable="false" sap:updatable="false"/><Property Name="testNote" Type="Edm.Boolean" sap:unicode="false" sap:label="TESTNOTE" sap:creatable="false" sap:updatable="false"/><Property Name="openDefects" Type="Edm.Int16" sap:unicode="false" sap:label="OPENDEFECTS" sap:creatable="false" sap:updatable="false"/><Property Name="tc_Id" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="TC_ID" sap:creatable="false" sap:updatable="false"/><Property Name="date_Tes" Type="Edm.String" sap:unicode="false" sap:label="DATE_TES" sap:creatable="false" sap:updatable="false"/><Property Name="classification" Type="Edm.String" sap:unicode="false" sap:label="CLASSIFICATION" sap:creatable="false" sap:updatable="false"/><Property Name="tester" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="TESTER" sap:creatable="false" sap:updatable="false"/><Property Name="wp_Id" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="WP_ID" sap:creatable="false" sap:updatable="false"/><Property Name="wp_Desc" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="WP_DESC" sap:creatable="false"
+					sap:updatable="false"/><NavigationProperty Name="TestToAttachmentsNav" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TestToAttachments"
+					FromRole="FromRole_TestToAttachments" ToRole="ToRole_TestToAttachments"/><NavigationProperty Name="TestToDefectsNav" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TestToDefects" FromRole="FromRole_TestToDefects"
+					ToRole="ToRole_TestToDefects"/><NavigationProperty Name="TestToStepsNav" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.TestToSteps" FromRole="FromRole_TestToSteps"
+					ToRole="ToRole_TestToSteps"/></EntityType>
+			<EntityType Name="WpTt" sap:content-version="1">
+				<Key><PropertyRef Name="testCaseId"/><PropertyRef Name="wpId"/></Key><Property Name="testCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="TESTCASEID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="WP_ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="WP_DESC" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="wpUrl" Type="Edm.String" Nullable="false" MaxLength="2550" sap:unicode="false" sap:label="WP_URL" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TestAttachment" sap:content-version="1">
+				<Key><PropertyRef Name="testPckID"/><PropertyRef Name="testPackKey"/><PropertyRef Name="testCaseId"/><PropertyRef Name="attId"/></Key><Property Name="testPckID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="testPackKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="testCaseId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attType" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attLink" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attCreatedBy" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attCreatedAt" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attChangedBy" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attChangedAt" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attName" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="attMime" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="TestDefect" sap:content-version="1">
+				<Key><PropertyRef Name="testPckId"/><PropertyRef Name="testPackKey"/><PropertyRef Name="testCaseId"/><PropertyRef Name="defectGuid"/></Key><Property Name="testPckId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="testPackKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="testCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="defectGuid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectId" Type="Edm.String" MaxLength="24" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectLink" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectStatus" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="DefectProcessor" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectCreatedBy" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectCreatedAt" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectChangedBy" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectChangedAt" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectDescr" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectPriority" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="defectStep" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="setFilters" sap:content-version="1">
+				<Key><PropertyRef Name="res"/></Key><Property Name="res" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="deleteSetting" sap:content-version="1">
+				<Key><PropertyRef Name="res"/></Key><Property Name="res" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="setOff" sap:content-version="1">
+				<Key><PropertyRef Name="res"/></Key><Property Name="res" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityType Name="TestStepStatusColumn" sap:content-version="1">
+				<Key><PropertyRef Name="Name"/></Key><Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Label" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="TES_ByProject" sap:content-version="1">
+				<Key><PropertyRef Name="chartId"/><PropertyRef Name="pageId"/><PropertyRef Name="configId"/><PropertyRef Name="testPlan"/><PropertyRef Name="project"/></Key><Property Name="chartId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false"/><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false"/><Property Name="ok" Type="Edm.Decimal" Precision="31" Scale="0" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="okNo" Type="Edm.Int32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="error" Type="Edm.Decimal" Precision="31" Scale="0" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="errorNo" Type="Edm.Int32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="inProgress" Type="Edm.Decimal" Precision="31" Scale="0" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="inProgressNo" Type="Edm.Int32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="initial" Type="Edm.Decimal" Precision="31" Scale="0" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="initialNo" Type="Edm.Int32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="unassigned" Type="Edm.Decimal" Precision="31" Scale="0" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="unassignedNo" Type="Edm.Int32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="numberofTests" Type="Edm.Int32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="numberofWorkPackages" Type="Edm.Int32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="noofRequirements" Type="Edm.Int32" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="testClassification" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="testPlan" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="project" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="Def_Stat_Static" sap:content-version="1">
+				<Key><PropertyRef Name="configId"/><PropertyRef Name="pageId"/><PropertyRef Name="chartId"/><PropertyRef Name="testPackage"/></Key><Property Name="configId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="pageId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="chartId" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="inProcess" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="created" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="total" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="high" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="veryHigh" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="noofDefects" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="col1" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="testPackage" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TestPackageStatusDetails" sap:content-version="1">
+				<Key><PropertyRef Name="TplnId"/><PropertyRef Name="TpckId"/></Key><Property Name="TplnId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Plan ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TpckId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Package ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TpckTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Test Package Title"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TpckPriority" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Test Package Priority"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TpckPriorityText" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false"
+					sap:label="Test Package Priority Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CntTesters" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Count Testers" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CntTestCases" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Count Test Cases" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CntUnassigned" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Count Test Cases in Status 'Unassigned'"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PerUnassigned" Type="Edm.Float" Nullable="false" sap:unicode="false"
+					sap:label="Percentage of Test Cases in Status 'Unassigned'" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="CntInitial" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Count Test Cases in Status 'Initial'"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PerInitial" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:label="Percentage of Test Cases in Status 'Initial'"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CntInProgress" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Count Test Cases in Status 'In Progress'"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PerInProgress" Type="Edm.Float" Nullable="false" sap:unicode="false"
+					sap:label="Percentage of Test Cases in Status 'In Progress'" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="CntError" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Count Test Cases in Status 'Error'"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PerError" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:label="Percentage of Test Cases in Status 'Error'"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CntOk" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Count Test Cases in Status 'Ok'"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PerOk" Type="Edm.Float" Nullable="false" sap:unicode="false" sap:label="Percentage of Test Cases in Status 'Ok'"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="CntOpenDefect" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Count Open Defects" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CPROJECT" sap:content-version="1">
+				<Key><PropertyRef Name="cproGuid"/></Key><Property Name="cproId" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="cproName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="cproGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tplnRestriction" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="tplnAssigned" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="solutionId" Type="Edm.String" Nullable="false" MaxLength="22" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="branchId" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="mode" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Signed INT2 / int16" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="branchName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><NavigationProperty Name="WAVE" Relationship="SALM_TEST_SUIT_DASHBOARD_SRV.CPROJECT_WAVE" FromRole="FromRole_CPROJECT_WAVE"
+					ToRole="ToRole_CPROJECT_WAVE"/></EntityType>
+			<EntityType Name="TestStepStatus" sap:content-version="1">
+				<Key><PropertyRef Name="TestPckID"/><PropertyRef Name="TESTPACKKEY"/><PropertyRef Name="TESTCASEID"/><PropertyRef Name="TESTER_STATUS_KEY"/><PropertyRef Name="STEP_ID"/></Key><Property Name="TestPckID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="TESTPACKKEY" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="TESTCASEID" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false"/><Property Name="TESTER_STATUS_KEY" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Tester" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="STEP_ID" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="StepText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Step_Status" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Executable_Name" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Description" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Instruction" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Expected_Result" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Actual_Result" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Evidence_Name" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Evidence_Link" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Partner" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Cust_01" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Cust_02" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Cust_03" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Cust_04" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Cust_05" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/><Property Name="Cust_06" Type="Edm.String" sap:unicode="false" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="Priority" sap:content-version="1">
+				<Key><PropertyRef Name="filterName"/></Key><Property Name="filterName" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="value" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="text" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="Status" sap:content-version="1">
+				<Key><PropertyRef Name="filterName"/><PropertyRef Name="value"/></Key><Property Name="filterName" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="value" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="text" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="OpenDefectStatusDetails" sap:content-version="1">
+				<Key><PropertyRef Name="TplnId"/><PropertyRef Name="TPckId"/><PropertyRef Name="DefectId"/></Key><Property Name="TplnId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Test Plan ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TplnTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Test Plan Title"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TPckId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Test Package ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TpckTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Test Package Title"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DefectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Defect ID" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DefecctTitle" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Defect Title"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="DefectUrl" Type="Edm.String" Nullable="false" MaxLength="2500" sap:unicode="false" sap:label="Defect URL"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="AggrStatus" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Aggregation Status"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="AggrStatusText" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Aggregation Status Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="PriorityText" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Priority Text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Creator" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Creator" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Reporter" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Reporter" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Processor" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Processor" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="SupportTeam" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Support Team"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ProcessingTime" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Processing Time (in days)"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MultiLevelCategory" Type="Edm.String" Nullable="false" MaxLength="209" sap:unicode="false" sap:label="Multi Level Category"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<Association Name="CHART_ChartDATA" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.CHART" Multiplicity="1" Role="FromRole_CHART_ChartDATA"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.ChartDATA" Multiplicity="*" Role="ToRole_CHART_ChartDATA"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CHART_ChartDATA"><PropertyRef Name="chartId"/><PropertyRef Name="pageId"/><PropertyRef Name="configId"/></Principal>
+					<Dependent Role="ToRole_CHART_ChartDATA"><PropertyRef Name="chartId"/><PropertyRef Name="pageId"/><PropertyRef Name="configId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CONFIG_PAGE" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.CONFIG" Multiplicity="1" Role="FromRole_CONFIG_PAGE"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.PAGE" Multiplicity="*" Role="ToRole_CONFIG_PAGE"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CONFIG_PAGE"><PropertyRef Name="configId"/></Principal>
+					<Dependent Role="ToRole_CONFIG_PAGE"><PropertyRef Name="configId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CONFIG_TestPLAN" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.CONFIG" Multiplicity="1" Role="FromRole_CONFIG_TestPLAN"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestPLAN" Multiplicity="*" Role="ToRole_CONFIG_TestPLAN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CONFIG_TestPLAN"><PropertyRef Name="configId"/></Principal>
+					<Dependent Role="ToRole_CONFIG_TestPLAN"><PropertyRef Name="configId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SOLUTION_BRANCH" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SOLUTION" Multiplicity="1" Role="FromRole_SOLUTION_BRANCH"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.BRANCH" Multiplicity="*" Role="ToRole_SOLUTION_BRANCH"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SOLUTION_BRANCH"><PropertyRef Name="solutionGuid"/></Principal>
+					<Dependent Role="ToRole_SOLUTION_BRANCH"><PropertyRef Name="solutionGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SOLUTION_SCOPE" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SOLUTION" Multiplicity="1" Role="FromRole_SOLUTION_SCOPE"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SCOPE" Multiplicity="*" Role="ToRole_SOLUTION_SCOPE"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SOLUTION_SCOPE"><PropertyRef Name="solutionGuid"/></Principal>
+					<Dependent Role="ToRole_SOLUTION_SCOPE"><PropertyRef Name="solutionGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TES_BY_WP_REQ" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TES_BY_WP" Multiplicity="1" Role="FromRole_TES_BY_WP_REQ"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.REQ" Multiplicity="*" Role="ToRole_TES_BY_WP_REQ"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TES_BY_WP_REQ"><PropertyRef Name="tcId"/><PropertyRef Name="wpId"/><PropertyRef Name="testPlanId"/></Principal>
+					<Dependent Role="ToRole_TES_BY_WP_REQ"><PropertyRef Name="testCaseId"/><PropertyRef Name="wpId"/><PropertyRef Name="testPlanId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SELECTION_SCOPE" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION" Multiplicity="1" Role="FromRole_SELECTION_SCOPE"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SCOPE" Multiplicity="*" Role="ToRole_SELECTION_SCOPE"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SELECTION_SCOPE"><PropertyRef Name="selectionId"/></Principal>
+					<Dependent Role="ToRole_SELECTION_SCOPE"><PropertyRef Name="selectionId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SELECTION_BRANCH" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION" Multiplicity="1" Role="FromRole_SELECTION_BRANCH"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.BRANCH" Multiplicity="*" Role="ToRole_SELECTION_BRANCH"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SELECTION_BRANCH"><PropertyRef Name="selectionId"/></Principal>
+					<Dependent Role="ToRole_SELECTION_BRANCH"><PropertyRef Name="selectionId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SELECTION_TestPLAN" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION" Multiplicity="1" Role="FromRole_SELECTION_TestPLAN"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestPLAN" Multiplicity="*" Role="ToRole_SELECTION_TestPLAN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SELECTION_TestPLAN"><PropertyRef Name="selectionId"/></Principal>
+					<Dependent Role="ToRole_SELECTION_TestPLAN"><PropertyRef Name="selectionId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SELECTION_BusinessPARTNER" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION" Multiplicity="1" Role="FromRole_SELECTION_BusinessPARTNER"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.BusinessPARTNER" Multiplicity="*" Role="ToRole_SELECTION_BusinessPARTNER"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SELECTION_BusinessPARTNER"><PropertyRef Name="selectionId"/></Principal>
+					<Dependent Role="ToRole_SELECTION_BusinessPARTNER"><PropertyRef Name="selectionId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SELECTION_ReleaseSTATUS" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION" Multiplicity="1" Role="FromRole_SELECTION_ReleaseSTATUS"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.ReleaseSTATUS" Multiplicity="*" Role="ToRole_SELECTION_ReleaseSTATUS"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SELECTION_ReleaseSTATUS"><PropertyRef Name="selectionId"/></Principal>
+					<Dependent Role="ToRole_SELECTION_ReleaseSTATUS"><PropertyRef Name="selectionId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SELECTION_TestCLASSIFICATION" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION" Multiplicity="1" Role="FromRole_SELECTION_TestCLASSIFICATION"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestCLASSIFICATION" Multiplicity="*" Role="ToRole_SELECTION_TestCLASSIFICATION"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SELECTION_TestCLASSIFICATION"><PropertyRef Name="selectionId"/></Principal>
+					<Dependent Role="ToRole_SELECTION_TestCLASSIFICATION"><PropertyRef Name="selectionId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP" Multiplicity="1" Role="FromRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DOC_TEXT_PO" Multiplicity="*" Role="ToRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"><PropertyRef Name="workPackageId"/><PropertyRef Name="lineId"/></Principal>
+					<Dependent Role="ToRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"><PropertyRef Name="wpId"/><PropertyRef Name="lineId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP" Multiplicity="1" Role="FromRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_PO" Multiplicity="*" Role="ToRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER"><PropertyRef Name="lineId"/><PropertyRef Name="workPackageId"/></Principal>
+					<Dependent Role="ToRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER"><PropertyRef Name="lineId"/><PropertyRef Name="wpId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TRA_MATRIX_DEEP_TRA_MATRIX_TILE" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP" Multiplicity="1" Role="FromRole_TRA_MATRIX_DEEP_TRA_MATRIX_TILE"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_TILE" Multiplicity="*" Role="ToRole_TRA_MATRIX_DEEP_TRA_MATRIX_TILE"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TRA_MATRIX_DEEP_TRA_MATRIX_TILE"><PropertyRef Name="lineId"/><PropertyRef Name="workPackageId"/></Principal>
+					<Dependent Role="ToRole_TRA_MATRIX_DEEP_TRA_MATRIX_TILE"><PropertyRef Name="lineId"/><PropertyRef Name="wpId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TILE_TileDETAILS" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TILE" Multiplicity="1" Role="FromRole_TILE_TileDETAILS"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TileDETAILS" Multiplicity="*" Role="ToRole_TILE_TileDETAILS"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TILE_TileDETAILS"><PropertyRef Name="configId"/><PropertyRef Name="pageId"/><PropertyRef Name="tileId"/></Principal>
+					<Dependent Role="ToRole_TILE_TileDETAILS"><PropertyRef Name="configId"/><PropertyRef Name="pageId"/><PropertyRef Name="tileId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="CPROJECT_WAVE" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.CPROJECT" Multiplicity="1" Role="FromRole_CPROJECT_WAVE"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.WAVE" Multiplicity="*" Role="ToRole_CPROJECT_WAVE"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_CPROJECT_WAVE"><PropertyRef Name="cproGuid"/></Principal>
+					<Dependent Role="ToRole_CPROJECT_WAVE"><PropertyRef Name="cproGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TestToAttachments" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestStatusResults" Multiplicity="1" Role="FromRole_TestToAttachments"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestAttachment" Multiplicity="*" Role="ToRole_TestToAttachments"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TestToAttachments"><PropertyRef Name="testCaseId"/><PropertyRef Name="testPackKey"/><PropertyRef Name="testPckId"/></Principal>
+					<Dependent Role="ToRole_TestToAttachments"><PropertyRef Name="testCaseId"/><PropertyRef Name="testPackKey"/><PropertyRef Name="testPckID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TestToDefects" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestStatusResults" Multiplicity="1" Role="FromRole_TestToDefects"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestDefect" Multiplicity="*" Role="ToRole_TestToDefects"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TestToDefects"><PropertyRef Name="testCaseId"/><PropertyRef Name="testPackKey"/><PropertyRef Name="testPckId"/></Principal>
+					<Dependent Role="ToRole_TestToDefects"><PropertyRef Name="testCaseId"/><PropertyRef Name="testPackKey"/><PropertyRef Name="testPckId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TestToSteps" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestStatusResults" Multiplicity="1" Role="FromRole_TestToSteps"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestStepStatus" Multiplicity="*" Role="ToRole_TestToSteps"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TestToSteps"><PropertyRef Name="testPckId"/><PropertyRef Name="testPackKey"/><PropertyRef Name="testCaseId"/></Principal>
+					<Dependent Role="ToRole_TestToSteps"><PropertyRef Name="TestPckID"/><PropertyRef Name="TESTPACKKEY"/><PropertyRef Name="TESTCASEID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TC_ERROR_TAB_WORK_PACKAGE" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TC_ERROR_TAB" Multiplicity="1" Role="FromRole_TC_ERROR_TAB_WORK_PACKAGE"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.WORK_PACKAGE" Multiplicity="*" Role="ToRole_TC_ERROR_TAB_WORK_PACKAGE"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TC_ERROR_TAB_WORK_PACKAGE"><PropertyRef Name="defectId"/><PropertyRef Name="testCaseId"/></Principal>
+					<Dependent Role="ToRole_TC_ERROR_TAB_WORK_PACKAGE"><PropertyRef Name="defectId"/><PropertyRef Name="testCaseId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="TES_BY_WP_OVERVIEW_REQ" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TES_BY_WP_OVERVIEW" Multiplicity="1" Role="FromRole_TES_BY_WP_OVERVIEW_REQ"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.REQ" Multiplicity="*" Role="ToRole_TES_BY_WP_OVERVIEW_REQ"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_TES_BY_WP_OVERVIEW_REQ"><PropertyRef Name="wpId"/><PropertyRef Name="testPlanId"/></Principal>
+					<Dependent Role="ToRole_TES_BY_WP_OVERVIEW_REQ"><PropertyRef Name="wpId"/><PropertyRef Name="testPlanId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="PAGE_TILE" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.PAGE" Multiplicity="1" Role="FromRole_PAGE_TILE"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TILE" Multiplicity="*" Role="ToRole_PAGE_TILE"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_PAGE_TILE"><PropertyRef Name="pageId"/><PropertyRef Name="configId"/></Principal>
+					<Dependent Role="ToRole_PAGE_TILE"><PropertyRef Name="pageId"/><PropertyRef Name="configId"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="WAVE_TEST_PLAN" sap:content-version="1"><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.WAVE" Multiplicity="1" Role="FromRole_WAVE_TEST_PLAN"/><End Type="SALM_TEST_SUIT_DASHBOARD_SRV.TestPLAN" Multiplicity="*" Role="ToRole_WAVE_TEST_PLAN"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_WAVE_TEST_PLAN"><PropertyRef Name="cproGuid"/><PropertyRef Name="waveId"/></Principal>
+					<Dependent Role="ToRole_WAVE_TEST_PLAN"><PropertyRef Name="ppmGuid"/><PropertyRef Name="waveGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="SALM_TEST_SUIT_DASHBOARD_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="BRANCHSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.BRANCH" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="BusinessPARTNERSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.BusinessPARTNER" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="CHARTSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.CHART" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ChartDATASet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.ChartDATA" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="CONFIGSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.CONFIG" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="FILTERSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.FILTER" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="FilterCONTENTSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.FilterCONTENT" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="PAGESet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.PAGE" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="SELECTIONSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION" sap:pageable="false" sap:addressable="false"
+				sap:content-version="1"/><EntitySet Name="SCOPESet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.SCOPE" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="SOLUTIONSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.SOLUTION" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TC_ERROR_TABSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TC_ERROR_TAB" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TES_BY_WPSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TES_BY_WP" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TES_BY_WP_OVERVIEWSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TES_BY_WP_OVERVIEW" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TEST_PREP_TILESet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TEST_PREP_TILE" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="TestCLASSIFICATIONSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TestCLASSIFICATION" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="TILESet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TILE" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TileDETAILSSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TileDETAILS" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TRA_MATRIX_DEEPSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TRA_MATRIX_DOC_TEXT_POSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DOC_TEXT_PO" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TRA_MATRIX_POSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_PO" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TRA_MATRIX_TILESet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_TILE" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="USERSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.USER" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="WAVESet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.WAVE" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="WORK_PACKAGESet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.WORK_PACKAGE" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="WP_TCASSIGNSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.WP_TCASSIGN" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TestPLANSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TestPLAN" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="REQSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.REQ" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="ReleaseSTATUSSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.ReleaseSTATUS" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="TestStatusResultsSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TestStatusResults" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/><EntitySet Name="WpTtSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.WpTt" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="TestAttachmentSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TestAttachment" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TestDefectSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TestDefect" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="setFiltersCollection" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.setFilters" sap:content-version="1"/><EntitySet Name="deleteSettingCollection" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.deleteSetting" sap:content-version="1"/><EntitySet Name="setOffCollection" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.setOff" sap:content-version="1"/><EntitySet Name="TestStepStatusColumnSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TestStepStatusColumn" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TES_ByProjectSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TES_ByProject" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="Def_Stat_StaticSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.Def_Stat_Static" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TestPackageStatusDetailsSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TestPackageStatusDetails" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="CPROJECTSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.CPROJECT" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TestStepStatusSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.TestStepStatus" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="PrioritySet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.Priority" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="StatusSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.Status" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="OpenDefectStatusDetailsSet" EntityType="SALM_TEST_SUIT_DASHBOARD_SRV.OpenDefectStatusDetails" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="CONFIG_PAGESet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.CONFIG_PAGE" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="CONFIGSet" Role="FromRole_CONFIG_PAGE"/><End EntitySet="PAGESet" Role="ToRole_CONFIG_PAGE"/></AssociationSet>
+				<AssociationSet Name="CHART_ChartDATASet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.CHART_ChartDATA" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="CHARTSet" Role="FromRole_CHART_ChartDATA"/><End EntitySet="ChartDATASet" Role="ToRole_CHART_ChartDATA"/></AssociationSet>
+				<AssociationSet Name="SELECTION_SCOPESet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_SCOPE" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SELECTIONSet" Role="FromRole_SELECTION_SCOPE"/><End EntitySet="SCOPESet" Role="ToRole_SELECTION_SCOPE"/></AssociationSet>
+				<AssociationSet Name="TES_BY_WP_OVERVIEW_REQSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TES_BY_WP_OVERVIEW_REQ" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="TES_BY_WP_OVERVIEWSet" Role="FromRole_TES_BY_WP_OVERVIEW_REQ"/><End EntitySet="REQSet" Role="ToRole_TES_BY_WP_OVERVIEW_REQ"/></AssociationSet>
+				<AssociationSet Name="CPROJECT_WAVESet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.CPROJECT_WAVE" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="CPROJECTSet" Role="FromRole_CPROJECT_WAVE"/><End EntitySet="WAVESet" Role="ToRole_CPROJECT_WAVE"/></AssociationSet>
+				<AssociationSet Name="SELECTION_ReleaseSTATUSSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_ReleaseSTATUS" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SELECTIONSet" Role="FromRole_SELECTION_ReleaseSTATUS"/><End EntitySet="ReleaseSTATUSSet" Role="ToRole_SELECTION_ReleaseSTATUS"/></AssociationSet>
+				<AssociationSet Name="TestToStepsSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TestToSteps" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TestStatusResultsSet" Role="FromRole_TestToSteps"/><End EntitySet="TestStepStatusSet" Role="ToRole_TestToSteps"/></AssociationSet>
+				<AssociationSet Name="TES_BY_WP_REQSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TES_BY_WP_REQ" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TES_BY_WPSet" Role="FromRole_TES_BY_WP_REQ"/><End EntitySet="REQSet" Role="ToRole_TES_BY_WP_REQ"/></AssociationSet>
+				<AssociationSet Name="PAGE_TILESet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.PAGE_TILE" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="PAGESet" Role="FromRole_PAGE_TILE"/><End EntitySet="TILESet" Role="ToRole_PAGE_TILE"/></AssociationSet>
+				<AssociationSet Name="SOLUTION_SCOPESet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.SOLUTION_SCOPE" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SOLUTIONSet" Role="FromRole_SOLUTION_SCOPE"/><End EntitySet="SCOPESet" Role="ToRole_SOLUTION_SCOPE"/></AssociationSet>
+				<AssociationSet Name="TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOCSet01" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="TRA_MATRIX_DEEPSet" Role="FromRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"/><End EntitySet="TRA_MATRIX_DOC_TEXT_POSet" Role="ToRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_DOC"/></AssociationSet>
+				<AssociationSet Name="TRA_MATRIX_DEEP_TRA_MATRIX_TILESet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP_TRA_MATRIX_TILE"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="TRA_MATRIX_DEEPSet" Role="FromRole_TRA_MATRIX_DEEP_TRA_MATRIX_TILE"/><End EntitySet="TRA_MATRIX_TILESet" Role="ToRole_TRA_MATRIX_DEEP_TRA_MATRIX_TILE"/></AssociationSet>
+				<AssociationSet Name="SELECTION_TestCLASSIFICATIONSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_TestCLASSIFICATION"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SELECTIONSet" Role="FromRole_SELECTION_TestCLASSIFICATION"/><End EntitySet="TestCLASSIFICATIONSet" Role="ToRole_SELECTION_TestCLASSIFICATION"/></AssociationSet>
+				<AssociationSet Name="SELECTION_BusinessPARTNERSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_BusinessPARTNER"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SELECTIONSet" Role="FromRole_SELECTION_BusinessPARTNER"/><End EntitySet="BusinessPARTNERSet" Role="ToRole_SELECTION_BusinessPARTNER"/></AssociationSet>
+				<AssociationSet Name="TestToAttachmentsSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TestToAttachments" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="TestStatusResultsSet" Role="FromRole_TestToAttachments"/><End EntitySet="TestAttachmentSet" Role="ToRole_TestToAttachments"/></AssociationSet>
+				<AssociationSet Name="TC_ERROR_TAB_WORK_PACKAGESet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TC_ERROR_TAB_WORK_PACKAGE"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="TC_ERROR_TABSet" Role="FromRole_TC_ERROR_TAB_WORK_PACKAGE"/><End EntitySet="WORK_PACKAGESet" Role="ToRole_TC_ERROR_TAB_WORK_PACKAGE"/></AssociationSet>
+				<AssociationSet Name="TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVESet"
+					Association="SALM_TEST_SUIT_DASHBOARD_SRV.TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TRA_MATRIX_DEEPSet" Role="FromRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER"/><End EntitySet="TRA_MATRIX_POSet" Role="ToRole_TRA_MATRIX_DEEP_TAB_TRA_MATRIX_POPOVER"/></AssociationSet>
+				<AssociationSet Name="SOLUTION_BRANCHSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.SOLUTION_BRANCH" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SOLUTIONSet" Role="FromRole_SOLUTION_BRANCH"/><End EntitySet="BRANCHSet" Role="ToRole_SOLUTION_BRANCH"/></AssociationSet>
+				<AssociationSet Name="SELECTION_BRANCHSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_BRANCH" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SELECTIONSet" Role="FromRole_SELECTION_BRANCH"/><End EntitySet="BRANCHSet" Role="ToRole_SELECTION_BRANCH"/></AssociationSet>
+				<AssociationSet Name="SELECTION_TestPLANSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.SELECTION_TestPLAN" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="SELECTIONSet" Role="FromRole_SELECTION_TestPLAN"/><End EntitySet="TestPLANSet" Role="ToRole_SELECTION_TestPLAN"/></AssociationSet>
+				<AssociationSet Name="WAVE_TEST_PLANSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.WAVE_TEST_PLAN" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="WAVESet" Role="FromRole_WAVE_TEST_PLAN"/><End EntitySet="TestPLANSet" Role="ToRole_WAVE_TEST_PLAN"/></AssociationSet>
+				<AssociationSet Name="CONFIG_TestPLANSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.CONFIG_TestPLAN" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="CONFIGSet" Role="FromRole_CONFIG_TestPLAN"/><End EntitySet="TestPLANSet" Role="ToRole_CONFIG_TestPLAN"/></AssociationSet>
+				<AssociationSet Name="TestToDefectsSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TestToDefects" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="TestStatusResultsSet" Role="FromRole_TestToDefects"/><End EntitySet="TestDefectSet" Role="ToRole_TestToDefects"/></AssociationSet>
+				<AssociationSet Name="TILE_TileDETAILSSet" Association="SALM_TEST_SUIT_DASHBOARD_SRV.TILE_TileDETAILS" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="TILESet" Role="FromRole_TILE_TileDETAILS"/><End EntitySet="TileDETAILSSet" Role="ToRole_TILE_TileDETAILS"/></AssociationSet>
+				<FunctionImport Name="deleteSetting" ReturnType="SALM_TEST_SUIT_DASHBOARD_SRV.deleteSetting" EntitySet="deleteSettingCollection"
+					m:HttpMethod="GET"><Parameter Name="act" Type="Edm.String" Mode="In"/></FunctionImport>
+				<FunctionImport Name="setFilters" ReturnType="SALM_TEST_SUIT_DASHBOARD_SRV.setFilters" EntitySet="setFiltersCollection" m:HttpMethod="GET"><Parameter Name="filter" Type="Edm.String" Mode="In"/></FunctionImport>
+			</EntityContainer><atom:link rel="self"
+				href="https://webidecp-fiori.dispatcher.int.sap.eu2.hana.ondemand.com/destinations/OFTCLNT200/sap/opu/odata/salm/TEST_SUIT_DASHBOARD_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
+				href="https://webidecp-fiori.dispatcher.int.sap.eu2.hana.ondemand.com/destinations/OFTCLNT200/sap/opu/odata/salm/TEST_SUIT_DASHBOARD_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

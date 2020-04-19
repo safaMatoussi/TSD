@@ -1,0 +1,32 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.sap.solman.fb.TestSuiteDashboard_NewVersion.controller.Details"
+	displayBlock="true" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core">
+	<App>
+		<pages title="test">
+			<!--			<Page>-->
+			<!--				<content>-->
+			<!--					<IconTabBar id="idIconTabBarMulti" expanded="true" class="sapUiResponsiveContentPadding">-->
+			<!--	<items>-->
+			<!--		<IconTabFilter icon="sap-icon://overview-chart" text="Overview">-->
+			<!--<core:Fragment fragmentName="com.sap.solman.fb.TestSuiteDashboard_NewVersion.view.mainOverview" type="XML"/>-->
+			<!--			<mvc:XMLView viewName="com.sap.solman.fb.TestSuiteDashboard_NewVersion.view.overviewPage" type="XML"/>-->
+			<!--		</IconTabFilter>-->
+			<!--		<IconTabFilter visible="{VisibilityModel>/iconIsVisible}" icon="sap-icon://documents" text="Test Preparation">-->
+			<!--			<core:Fragment fragmentName="com.sap.solman.fb.TestSuiteDashboard_NewVersion.view.mainTestPrep" type="XML"/>-->
+			<!--		</IconTabFilter>-->
+			<!--		<IconTabFilter icon="sap-icon://activity-2" text="Test Execution Status">-->
+			<!--			<core:Fragment fragmentName="com.sap.solman.fb.TestSuiteDashboard_NewVersion.view.mainTestStatus" type="XML"/>-->
+			<!--		</IconTabFilter>-->
+			<!--		<IconTabFilter icon="sap-icon://error" text="Defect Status">-->
+			<!--			<core:Fragment fragmentName="com.sap.solman.fb.TestSuiteDashboard_NewVersion.view.mainDefect" type="XML"/>-->
+			<!--		</IconTabFilter>-->
+			<!--		<IconTabFilter visible="{VisibilityModel>/iconIsVisible}" icon="sap-icon://provision" text="Traceability Matrix">-->
+			<!--			<core:Fragment fragmentName="com.sap.solman.fb.TestSuiteDashboard_NewVersion.view.mainMatrix" type="XML"/>-->
+			<!--		</IconTabFilter>-->
+			<!--	</items>-->
+			<!--</IconTabBar>-->
+			<!--				</content>-->
+			<!--			</Page>-->
+		</pages>
+	</App>
+</mvc:View>

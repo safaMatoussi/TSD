@@ -1,0 +1,163 @@
+<core:FragmentDefinition xmlns="sap.m" displayBlock="true" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:core="sap.ui.core">
+	<smartFilterBar:SmartFilterBar  visible="{VisibilityModel>/mainOverviewIsVisible}" id="smartFilterBar" persistencyKey="SmartFilterPKey" entitySet="TestPLAN" enableBasicSearch="false"
+		filterChange="onFilterChange" beforeVariantFetch=".beforeVariantSave" afterVariantLoad=".afterVariantLoad" showRestoreButton="true"
+		useToolbar="false" smartVariant="__SVM01" assignedFiltersChanged="onAssignedFiltersChanged">
+		<smartFilterBar:controlConfiguration>
+			<smartFilterBar:ControlConfiguration label="{i18n>mode}" key="mode" visibleInAdvancedArea="true"
+				preventInitialDataFetchInValueHelpDialog="false" index="1" width="700px">
+				<smartFilterBar:customControl>
+					<Select width="10em" change="onSelectChangeMode" autoAdjustWidth="true" selectedKey="{FilterBarData>/modeKey}">
+						<core:Item key="0" text="{i18n>ppmMode}"/>
+						<core:Item key="1" text="{i18n>solMode}"/>
+					</Select>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration label="{i18n>project}" key="ppm" visibleInAdvancedArea="true"
+				preventInitialDataFetchInValueHelpDialog="false" index="1" width="700px">
+				<smartFilterBar:customControl>
+					<Input required="{VisibilityModel>/projectIsMandatory}" value="{FilterBarData>/projectValue}" valueHelpRequest="handelppmProjItem"
+						showSuggestion="true" showValueHelp="true" valueHelpOnly="true"></Input>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="wave" label="{i18n>Wave}" visible="{VisibilityModel>/waveIsVisible}" visibleInAdvancedArea="true"
+				preventInitialDataFetchInValueHelpDialog="false" index="2">
+				<smartFilterBar:customControl>
+					<Input required="true" visible="{VisibilityModel>/waveIsVisible}" value="{FilterBarData>/waveValue}" valueHelpRequest="handelWaveItem"
+						editable="{FilterBarData>/waveEnablement}" showSuggestion="true" showValueHelp="true" valueHelpOnly="true"></Input>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration visible="{VisibilityModel>/solutionIsVisible}" label="{i18n>solution}" key="solution"
+				visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false" width="700px" index="2">
+				<smartFilterBar:customControl>
+					<Input required="true" visible="{VisibilityModel>/solutionIsVisible}" value="{FilterBarData>/solutionValue}"
+						valueHelpRequest="handelSolutionItem" showSuggestion="true" showValueHelp="true" valueHelpOnly="true"></Input>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration visible="{VisibilityModel>/branchIsVisible}" label="{i18n>Branch}" key="branch"
+				visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false" width="700px" index="2">
+				<smartFilterBar:customControl>
+					<Input visible="{VisibilityModel>/branchIsVisible}" enabled="{VisibilityModel>/fieldEditability}" valueHelpRequest="handelBranchItem"
+						showSuggestion="true" showValueHelp="true" valueHelpOnly="true"></Input>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="scopeDesc" label="{i18n>Scope}" visibleInAdvancedArea="true" index="3">
+				<smartFilterBar:customControl>
+					<MultiInput valueHelpRequest="handelScopeItem" enabled="{VisibilityModel>/fieldEditability}" showSuggestion="true" showValueHelp="true"
+						valueHelpOnly="true"/>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="TITLE" label="{i18n>TestPlan}" visibleInAdvancedArea="true" index="4">
+				<smartFilterBar:customControl>
+					<Input liveChange="filterByTP" showSuggestion="true" enabled="{VisibilityModel>/fieldEditability}" valueHelpOnly="true"></Input>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="resPerson" label="{i18n>ResponsiblePerson}" visibleInAdvancedArea="true" index="5">
+				<smartFilterBar:customControl>
+					<MultiInput valueHelpRequest="handelResPersonItem" enabled="{VisibilityModel>/fieldEditability}" showSuggestion="true" showValueHelp="true"/>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="relStatusId" label="{i18n>Releasestatus}" visibleInAdvancedArea="true" index="6">
+				<smartFilterBar:customControl>
+					<MultiInput enabled="false" valueHelpRequest="handelstatusItem"/>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="testClass" label="{i18n>TestClassification}" visibleInAdvancedArea="true" index="7">
+				<smartFilterBar:customControl>
+					<MultiInput enabled="false" value="{testClass}" valueHelpRequest="handelClassificationItem"/>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="plannedStartDate" label="{i18n>PlannedFromDate}" visibleInAdvancedArea="true" index="8">
+				<smartFilterBar:customControl>
+					<DatePicker displayFormat="yyyy/MM/dd" enabled="{VisibilityModel>/fieldEditability}"/>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="plannedEndDate" label="{i18n>PlannedToDate}" visibleInAdvancedArea="true" index="9">
+				<smartFilterBar:customControl>
+					<DatePicker displayFormat="yyyy/MM/dd" enabled="{VisibilityModel>/fieldEditability}"/>
+				</smartFilterBar:customControl>
+			</smartFilterBar:ControlConfiguration>
+		</smartFilterBar:controlConfiguration>
+	</smartFilterBar:SmartFilterBar>
+	<smartTable:SmartTable entitySet="TestPLANSet" visible="{VisibilityModel>/mainOverviewIsVisible}" tableType="ResponsiveTable" smartFilterId="smartFilterBar" useExportToExcel="false"
+		persistencyKey="SmartTablePKey" useTablePersonalisation="true" useVariantManagement="false" beforeRebindTable="beforeRebindTable"
+		showRowCount="false" showFullScreenButton="true" parseError=".parseError" enableAutoBinding="false"
+		customData:p13nDialogSettings='{group:{visible:false},sort:{visible:true},filter:{visible:true}}'
+		initiallyVisibleFields="TITLE,BranchTitle,scopeDesc,resPerson,relStatusValue,testClass,plannedStartDate,plannedEndDate"
+		initialise=".initialise">
+		<smartTable:customToolbar>
+			<OverflowToolbar class="sapUiMediumMarginTop">
+				<ToolbarSpacer/>
+			<Button tooltip="Apply" type="Emphasized" enabled="{testPlanModel>/buttonEnablement}" press="Apply" icon="sap-icon://accept"/>
+		</OverflowToolbar>
+		</smartTable:customToolbar>
+		<Table mode="MultiSelect" selectionChange="onSelectRow">
+			<columns>
+				<Column hAlign="Begin" vAlign="Middle">
+					<customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "TITLE" , "leadingProperty": "TITLE", "sortProperty": "TITLE"}'/>
+					</customData>
+					<Text text="{i18n>TestPlan}"></Text>
+				</Column>
+				<Column hAlign="Begin" vAlign="Middle">
+					<customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "BranchTitle" , "leadingProperty": "BranchTitle", "sortProperty": "BranchTitle"}'/>
+					</customData>
+					<Text text="{i18n>Branch}"></Text>
+				</Column>
+				<Column hAlign="Begin" vAlign="Middle">
+					<customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "scopeDesc" , "leadingProperty": "scopeDesc", "sortProperty": "scopeDesc"}'/>
+					</customData>
+					<Text text="{i18n>scope}"></Text>
+				</Column>
+				<Column hAlign="Begin" vAlign="Middle">
+					<customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "resPerson" , "leadingProperty": "resPerson", "sortProperty": "resPerson"}'/>
+					</customData>
+					<Text text="{i18n>ResponsiblePerson}"></Text>
+				</Column>
+				<Column hAlign="Begin" vAlign="Middle">
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "relStatusValue" , "leadingProperty": "relStatusValue", "sortProperty": "relStatusValue"}'/>
+					</customData>
+					<Text text="{i18n>Releasestatus}"></Text>
+				</Column>
+				<Column hAlign="Begin" vAlign="Middle">
+					<customData>
+						<core:CustomData key="p13nData" value='\{"columnKey": "testClass" , "leadingProperty": "testClass", "sortProperty": "testClass"}'/>
+					</customData>
+					<Text text="{i18n>TestClassification}"></Text>
+				</Column>
+				<Column hAlign="Begin" vAlign="Middle">
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "plannedStartDate" , "leadingProperty": "plannedStartDate", "sortProperty": "plannedStartDate"}'/>
+					</customData>
+					<Text text="{i18n>PlannedFromDate}"></Text>
+				</Column>
+				<Column hAlign="Begin" vAlign="Middle">
+					<customData>
+						<core:CustomData key="p13nData"
+							value='\{"columnKey": "plannedEndDate" , "leadingProperty": "plannedEndDate", "sortProperty": "plannedEndDate"}'/>
+					</customData>
+					<Text text="{i18n>PlannedToDate}"></Text>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<Text text="{TITLE}"></Text>
+					<Text text="{BranchTitle}"></Text>
+					<Text text="{scopeDesc}"></Text>
+					<Text text="{resPerson}"></Text>
+					<Text text="{relStatusValue}"></Text>
+					<Text text="{testClass}"></Text>
+					<Text text="{plannedStartDate}"></Text>
+					<Text text="{plannedEndDate}"></Text>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</smartTable:SmartTable>
+</core:FragmentDefinition>
